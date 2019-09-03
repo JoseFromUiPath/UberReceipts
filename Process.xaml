@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>376,510</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>862,1110</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -58,7 +58,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="336,430" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="822,1030" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Double" Name="Total" />
       <Variable x:TypeArguments="x:Double" Name="Subtotal" />
@@ -76,6 +76,8 @@
       <Variable x:TypeArguments="x:String" Name="TripDate" />
       <Variable x:TypeArguments="x:Double" Name="Tip" />
       <Variable x:TypeArguments="x:String" Name="TripID" />
+      <Variable x:TypeArguments="x:String" Name="Status" />
+      <Variable x:TypeArguments="x:Double" Name="CancellationFee" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -83,7 +85,57 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ParseReceiptValues workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ParseReceiptValues.xaml">
+    <If Condition="[in_TransactionItem.Subject.ToLower.Contains(&quot;canceled trip&quot;)]" sap:VirtualizedContainerService.HintSize="800,608" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="511,458" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[Boolean.Parse(in_Config(&quot;IncludeCanceledTrips&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="489,334" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="264,184" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">Canceled</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="Not processing cancelled trips" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="264,184" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">Completed</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ParseReceiptValues workflow" sap:VirtualizedContainerService.HintSize="800,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ParseReceiptValues.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ReceiptText">[in_TransactionItem.Body]</InArgument>
         <OutArgument x:TypeArguments="x:Double" x:Key="out_Total">[Total]</OutArgument>
@@ -102,9 +154,11 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_Date">[TripDate]</OutArgument>
         <OutArgument x:TypeArguments="x:Double" x:Key="out_Tip">[Tip]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_TripID">[TripID]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Status">[Status]</InArgument>
+        <OutArgument x:TypeArguments="x:Double" x:Key="out_CancellationFee">[CancellationFee]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke WriteTripToFile workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="WriteTripToFile.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke WriteTripToFile workflow" sap:VirtualizedContainerService.HintSize="800,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="WriteTripToFile.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Double" x:Key="in_Total">[Total]</InArgument>
         <InArgument x:TypeArguments="x:Double" x:Key="in_Subtotal">[Subtotal]</InArgument>
@@ -120,6 +174,8 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_TripDate">[TripDate]</InArgument>
         <InArgument x:TypeArguments="x:Double" x:Key="in_Tip">[Tip]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_TripID">[TripID]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Status">[Status]</InArgument>
+        <InArgument x:TypeArguments="x:Double" x:Key="in_CancellationFee">[CancellationFee]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
