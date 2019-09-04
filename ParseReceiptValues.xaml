@@ -1,10 +1,22 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ParseReceiptValues" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ReceiptText" Type="InArgument(x:String)" />
-    <x:Property Name="out_Total" Type="OutArgument(x:Double)" />
+    <x:Property Name="in_ReceiptText" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="out_Total" Type="OutArgument(x:Double)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="out_Subtotal" Type="OutArgument(x:Double)" />
     <x:Property Name="out_StateSurcharge" Type="OutArgument(x:Double)" />
-    <x:Property Name="out_AmountCharged" Type="OutArgument(x:Double)" />
+    <x:Property Name="out_AmountCharged" Type="OutArgument(x:Double)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="out_Promotions" Type="OutArgument(x:Double)" />
     <x:Property Name="out_TollsAndFees" Type="OutArgument(x:Double)" />
     <x:Property Name="out_Driver" Type="OutArgument(x:String)" />
@@ -14,16 +26,28 @@
     <x:Property Name="out_EndTime" Type="OutArgument(x:String)" />
     <x:Property Name="out_StartLocation" Type="OutArgument(x:String)" />
     <x:Property Name="out_EndLocation" Type="OutArgument(x:String)" />
-    <x:Property Name="out_Date" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Date" Type="OutArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="out_Tip" Type="OutArgument(x:Double)" />
-    <x:Property Name="out_TripID" Type="OutArgument(x:String)" />
-    <x:Property Name="in_Status" Type="InArgument(x:String)" />
+    <x:Property Name="out_TripID" Type="OutArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_Status" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="out_CancellationFee" Type="OutArgument(x:Double)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>577,4251</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>577,4159</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -81,7 +105,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="ParseReceiptValues" sap:VirtualizedContainerService.HintSize="537,4171" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ParseReceiptValues" sap:VirtualizedContainerService.HintSize="537,4079" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="Index" />
       <Variable x:TypeArguments="s:String[]" Name="ReceiptTextSplit" />
@@ -93,13 +117,6 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="515,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_15">
-          <ui:WriteTextFile DisplayName="Write Text File" FileName="Email.txt" sap:VirtualizedContainerService.HintSize="652,52" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[in_ReceiptText]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
     <Assign sap:VirtualizedContainerService.HintSize="515,60" sap2010:WorkflowViewState.IdRef="Assign_13">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[ReceiptTextSplit]</OutArgument>
