@@ -89,7 +89,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Takes in trip values and either creates or appends to the Output.xlsx report&#xD;&#xA;&#xD;&#xA;Pre-Condition: N/A&#xD;&#xA;Post-Condition: N/A" DisplayName="WriteTripToFile" sap:VirtualizedContainerService.HintSize="1186,1830" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Takes in trip values and either creates or appends to the Output.xlsx report&#xA;&#xA;Pre-Condition: N/A&#xA;Post-Condition: N/A" DisplayName="WriteTripToFile" sap:VirtualizedContainerService.HintSize="1186,1830" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="TripDT" />
       <Variable x:TypeArguments="x:Boolean" Name="DoesOutputFileExist" />
@@ -132,7 +132,7 @@
               <InArgument x:TypeArguments="x:Int32">[ExistingReportDT.Rows.Count-1]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[ExistingReportDT.Rows(RowIndex)(&quot;Date&quot;).ToString.Equals(in_TripDate) AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Start Time&quot;).ToString.Equals(in_StartTime) AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Start Location&quot;).ToString.Equals(in_StartLocation) AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Driver&quot;).ToString.Equals(in_Driver)]" sap:VirtualizedContainerService.HintSize="803,739" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[RowIndex &gt; -1 AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Trip ID&quot;).ToString.Equals(in_TripID)]" sap:VirtualizedContainerService.HintSize="803,739" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
               <If Condition="[in_Tip&gt;0]" sap:VirtualizedContainerService.HintSize="464,589" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>

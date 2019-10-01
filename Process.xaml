@@ -171,7 +171,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_EndLocation">[EndLocation]</InArgument>
         <InArgument x:TypeArguments="x:Double" x:Key="in_Promotions">[Promotions]</InArgument>
         <InArgument x:TypeArguments="x:Double" x:Key="in_AmountCharged">[AmountCharged]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TripDate">[TripDate]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TripDate">[Convert.ToDateTime(in_TransactionItem.Headers("Date").ToString).ToString("MM.dd.yyyy")]</InArgument>
         <InArgument x:TypeArguments="x:Double" x:Key="in_Tip">[Tip]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_TripID">[TripID]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_Status">[Status]</InArgument>

@@ -66,7 +66,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID15}" sap2010:Annotation.AnnotationText="Description: This process is intended to be used to generate a report from Uber receipt emails in an email account. It filters a specified mail folder for a subject pertaining to Uber receipts. It then iterates through each MailMessage and parses values from the body. Finally, a row is added to Output.xlsx with all the values gathered.&#xA;&#xA;Applications Used: Outlook&#xA;&#xA;Limitations: &#xA;      Expects a trip which has tip added to have the tip added before another trip is completed or canceled.&#xA;      Relies heavily on current Uber receipt email body structure." DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="614,808" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID15}" sap2010:Annotation.AnnotationText="Description: This process is intended to be used to generate a report from Uber receipt emails in an email account. It filters a specified mail folder for a subject pertaining to Uber receipts, and whos received date is between the parameters set in the Config.xlsx. It then iterates through each MailMessage and parses values from the body. Finally, a row is added to Output.xlsx with all the values gathered.&#xA;&#xA;Applications Used: Outlook&#xA;&#xA;Limitations: &#xA;      Expects a trip which has tip added to have the tip added before another trip is completed or canceled.&#xA;      Relies heavily on current Uber receipt email body structure." DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="614,808" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -189,7 +189,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID14" sap2010:Annotation.AnnotationText="A transaction either succeeds or fails with a Business Rule Exception or a System Error. For System Error, it can be retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="211,146" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID14" sap2010:Annotation.AnnotationText="A transaction either succeeds or fails with a Business Rule Exception or a System Error. For System Error, it can be retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="444,1030" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="418,566" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                   <sap:WorkflowViewStateService.ViewState>
@@ -324,7 +324,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemError IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID15" sap2010:Annotation.AnnotationText="Read Config, Init Applications" DisplayName="Init" sap:VirtualizedContainerService.HintSize="1307,2637" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID15" sap2010:Annotation.AnnotationText="Read Config, Init Applications" DisplayName="Init" sap:VirtualizedContainerService.HintSize="234,89" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Catch intialization exceptions" sap:VirtualizedContainerService.HintSize="1281,2217" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
