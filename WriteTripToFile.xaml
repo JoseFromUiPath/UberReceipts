@@ -36,7 +36,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1226,1910</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1383,1794</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -89,7 +89,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Takes in trip values and either creates or appends to the Output.xlsx report&#xA;&#xA;Pre-Condition: N/A&#xA;Post-Condition: N/A" DisplayName="WriteTripToFile" sap:VirtualizedContainerService.HintSize="1186,1830" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Takes in trip values and either creates or appends to the Output.xlsx report&#xA;&#xA;Pre-Condition: N/A&#xA;Post-Condition: N/A" DisplayName="WriteTripToFile" sap:VirtualizedContainerService.HintSize="1363,1734" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="TripDT" />
       <Variable x:TypeArguments="x:Boolean" Name="DoesOutputFileExist" />
@@ -101,13 +101,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetEnvironmentVariable DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="1164,59" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" VariableValue="[CurrentDirectory]" />
-    <ui:PathExists DisplayName="Path Exists" Exists="[DoesOutputFileExist]" sap:VirtualizedContainerService.HintSize="1164,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(CurrentDirectory, &quot;Data\Output.xlsx&quot;)]" PathType="File" />
-    <ui:BuildDataTable DataTable="[TripDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1164,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Start_x0020_Time&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Start_x0020_Location&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;End_x0020_Time&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;End_x0020_Location&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Subtotal&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;State_x0020_Surcharge&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Promotions&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tolls_x0020_and_x0020_Fees&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tip&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Total&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount_x0020_Charged&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Driver&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Trip_x0020_ID&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Cancellation_x0020_Fee&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TripDate, in_StartTime, in_StartLocation, in_EndTime, in_EndLocation, in_Subtotal, in_StateSurcharge, in_Promotions, in_TollsAndFees, in_Tip, in_Total, in_AmountCharged, in_Driver, in_TripID, in_CancellationFee, in_Status}]" DataTable="[TripDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1164,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-    <If Condition="[DoesOutputFileExist]" sap:VirtualizedContainerService.HintSize="1164,1240" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:GetEnvironmentVariable DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="1321,59" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" VariableValue="[CurrentDirectory]" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[DoesOutputFileExist]" sap:VirtualizedContainerService.HintSize="1321,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine(CurrentDirectory, &quot;Data\Output.xlsx&quot;)]" PathType="File" />
+    <ui:BuildDataTable DataTable="[TripDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1321,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Date&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Start_x0020_Time&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Start_x0020_Location&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;End_x0020_Time&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;End_x0020_Location&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subtotal&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;State_x0020_Surcharge&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Promotions&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Tolls_x0020_and_x0020_Fees&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Tip&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Total&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Total_x0020__x0028_Pre-Tip_x0029_&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Driver&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Trip_x0020_ID&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Cancellation_x0020_Fee&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Status&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TripDate, in_StartTime, in_StartLocation, in_EndTime, in_EndLocation, in_Subtotal, in_StateSurcharge, in_Promotions, in_TollsAndFees, in_Tip, in_Total, in_AmountCharged, in_Driver, in_TripID, in_CancellationFee, in_Status}]" DataTable="[TripDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1321,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+    <If Condition="[DoesOutputFileExist]" sap:VirtualizedContainerService.HintSize="1321,1176" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="825,1090" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="942,1026" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="ExistingReportDT" />
             <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
@@ -117,14 +117,14 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadRange AddHeaders="True" DataTable="[ExistingReportDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="803,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="Data/Output.xlsx">
+          <ui:ReadRange AddHeaders="True" DataTable="[ExistingReportDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="900,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="Data/Output.xlsx">
             <ui:ReadRange.Range>
               <InArgument x:TypeArguments="x:String">
                 <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>
             </ui:ReadRange.Range>
           </ui:ReadRange>
-          <Assign sap:VirtualizedContainerService.HintSize="803,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap:VirtualizedContainerService.HintSize="900,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[RowIndex]</OutArgument>
             </Assign.To>
@@ -132,17 +132,17 @@
               <InArgument x:TypeArguments="x:Int32">[ExistingReportDT.Rows.Count-1]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[RowIndex &gt; -1 AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Trip ID&quot;).ToString.Equals(in_TripID)]" sap:VirtualizedContainerService.HintSize="803,739" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[RowIndex &gt; -1 AndAlso ExistingReportDT.Rows(RowIndex)(&quot;Trip ID&quot;).ToString.Equals(in_TripID)]" sap:VirtualizedContainerService.HintSize="900,707" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <If Condition="[in_Tip&gt;0]" sap:VirtualizedContainerService.HintSize="464,589" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[in_Tip&gt;0]" sap:VirtualizedContainerService.HintSize="521,557" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="336,439" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,407" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Object">[ExistingReportDT.Rows(RowIndex)("Tip")]</OutArgument>
                       </Assign.To>
@@ -150,7 +150,7 @@
                         <InArgument x:TypeArguments="x:Object">[in_Tip]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Object">[ExistingReportDT.Rows(RowIndex)("Total")]</OutArgument>
                       </Assign.To>
@@ -158,19 +158,19 @@
                         <InArgument x:TypeArguments="x:Object">[in_Total]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:WriteRange AddHeaders="True" DataTable="[ExistingReportDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="314,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Data/Output.xlsx" />
+                    <ui:WriteRange AddHeaders="True" DataTable="[ExistingReportDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Data/Output.xlsx" />
                   </Sequence>
                 </If.Then>
               </If>
             </If.Then>
             <If.Else>
-              <ui:AppendRange DataTable="[TripDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="314,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="Data/Output.xlsx" />
+              <ui:AppendRange DataTable="[TripDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="Data/Output.xlsx" />
             </If.Else>
           </If>
         </Sequence>
       </If.Then>
       <If.Else>
-        <ui:WriteRange AddHeaders="True" DataTable="[TripDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="314,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Data/Output.xlsx" />
+        <ui:WriteRange AddHeaders="True" DataTable="[TripDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Data/Output.xlsx" />
       </If.Else>
     </If>
   </Sequence>
